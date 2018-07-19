@@ -1,0 +1,22 @@
+version: '3'
+services:
+  node:
+    build: .
+    depends_on:
+      - mongo
+    restart: always
+    command: npm run start-watch
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "3000:3000"
+  mongo:
+    image: mongo:3.2
+    ports:
+      - "27017:27017"
+    volumes:
+      - node-mongo:/data/db
+volumes:
+  node-mongo:
+    

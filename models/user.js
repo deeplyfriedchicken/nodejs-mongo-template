@@ -1,9 +1,9 @@
-const { Schema, model } = require('mongoose')
+const mongoose = require('mongoose')
 const jwt = require('jsonwebtoken')
 
 const { secret } = require('./../config/secret')
 
-let UserSchema = new Schema({
+let UserSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
@@ -76,6 +76,6 @@ UserSchema.methods.generateAuthToken = function () {
   })
 }
 
-let User = model('User', UserSchema)
+let User = mongoose.model('User', UserSchema)
 
 module.exports = { User }

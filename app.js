@@ -18,6 +18,6 @@ const port = process.env.PORT
 
 if (!module.parent) { app.listen(port) }
 
-console.log(`Application started. Listening on port:` + port)
+console.log(`Application started. Listening on port: ${port}`)
 
 module.exports = { app }
